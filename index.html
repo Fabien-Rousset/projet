@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MongoDB</title>
+</head>
+<body>
+    <h2>Ajouter un chien</h2>
+
+    <form action="http://localhost:3000/dogs" method="POST">
+      <label for="name">Nom du chien :</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+    
+      <label for="breed">Race :</label><br>
+      <input type="text" id="breed" name="breed" required><br><br>
+    
+      <label for="age">Âge :</label><br>
+      <input type="number" id="age" name="age" required><br><br>
+    
+      <label for="isGoodBoy">Est-il un bon garçon ?</label><br>
+      <input type="radio" id="isGoodBoy" name="isGoodBoy" value="true" checked>
+      <label for="isGoodBoy">Oui</label><br>
+      <input type="radio" id="isGoodBoy" name="isGoodBoy" value="false">
+      <label for="isGoodBoy">Non</label><br><br>
+    
+      <input type="submit" value="Soumettre">
+    </form>
+</body>
+<script src="index.js"></script>
+<script src="models.js"></script>
+</html>
