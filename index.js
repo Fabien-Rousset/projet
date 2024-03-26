@@ -37,9 +37,32 @@ app.post("/dogs", async (req, res) => {
   }
 });
 
+//UPDATE un chien
+app.put("/dogs/:id", async (req, res) => {
+    const { id } = req.params;
+    await Dog.updateOne({ _id: id }, req.body);
+    const updatedDog = await Dog.findById(id);
+    return res.status(200).json(updatedDog);
+  });
+
+
+  //DELETE un Chien
+  app.delete("/dogs/:id", async (req, res) => {
+    const { id } = req.params;
+    const deletedDog = await Dog.findByIdAndDelete(id);
+    return res.status(200).json(deletedDog);
+  });
+  
+
+
+
+
+// sécurisation des données sensibles via process.env
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI =process.env.MONGODB_URI || "mongodb+srv://fabienrousset1981:Mm2VsJR2BbC0Eal@cluster0.lwysolq.mongodb.net/";
 
+
+//Connnexion à la BDD
 const start = async () => {
   try {
     await connect(MONGODB_URI);
